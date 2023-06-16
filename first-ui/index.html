@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.com/libraries/Chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="brand">
+        <p class="pre">
+            PrecogOS
+        </p>    
+            
+        </div>
+        <div class="right">
+            <a href="#" class="profile">Profile</a>
+            <a href="#" class="logout">Logout</a>
+        </div>
+    </div>
+    <div class="pie-display">
+        <canvas id="pieChart" class="pie"></canvas>
+        <canvas id="pieChart1" class="pie1"></canvas>
+        
+    </div>
+    <div class="data">
+        <div class="cus1">
+            <p class="p1">
+                20        </p>
+            <p class="p2">
+                Total Customers
+            </p>
+        </div>
+        <div class="cus2">
+            <p class="p1">
+                50 </p>
+            <p class="p2">
+                Total Devices
+            </p>
+        </div>
+    </div>
+
+    <div class="data-stat">
+        <div class="data-container">
+            <h3 class="data-h3">Device Status for Last 24 Hours</h3>
+            
+
+<div class="num">
+    <span class="n">11</span>
+    <span class="n">12</span>
+    <span class="n">13</span>
+    <span class="n">14</span>
+    <span class="n">15</span>
+    <span class="n">16</span>
+    <span class="n">17</span>
+    <span class="n">18</span>
+    <span class="n">19</span>
+    <span class="n">20</span>
+    <span class="n">21</span>
+    <span class="n">22</span>
+    <span class="n">23</span>
+    <span class="n">00</span>
+    <span class="n">01</span>
+    <span class="n">02</span>
+    <span class="n">03</span>
+    <span class="n">04</span>
+    <span class="n">05</span>
+    <span class="n">06</span>
+    <span class="n">07</span>
+    <span class="n">08</span>
+    <span class="n">09</span>
+    <span class="n">10</span>
+
+
+</div>
+
+          <div class="customers">
+            <p class="c1">
+                Cutomer 1
+            </p>
+          
+                 <span class="c1-span"></span>
+                 <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+                <span class="c1-span"></span>
+          
+      </div>
+<div class="customers">
+    <p class="c2">
+        Cutomer 2
+    </p>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    
+
+</div>
+<div class="customers">
+    <p class="c3">
+        Cutomer 3
+    </p>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    <span class="c1-span-1"></span>
+    
+
+</div>
+<div class="customers">
+    <p class="c4">
+        Cutomer 4
+    </p>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+
+
+</div>
+
+<div class="customers">
+    <p class="c5">
+        Cutomer 5
+    </p>
+
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span-1"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+<span class="c1-span"></span>
+
+</div>
+            
+        </div>
+    </div>
+
+
+    
+
+<script src="index.js"></script>
+
+
+
+</body>
+
+</html>
