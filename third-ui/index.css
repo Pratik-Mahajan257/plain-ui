@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #212121;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+}
+
+
+.brand {
+    color: #fff;
+    font-weight: bold;
+    background-color: #000;
+    padding-inline: 10px;
+    margin-left: 80px;
+
+}
+
+.pre {
+    font-family: 'Poppins', sans-serif;
+}
+
+.right {
+    display: flex;
+    gap: 35px;
+}
+
+.logout {
+    margin-right: 20px;
+}
+
+.profile,
+.logout {
+    color: #616161;
+    text-decoration: none;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+}
+
+.main{
+    margin-inline: 45px;
+}
+.licence{
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 15px;
+    
+}
+.l-1{
+    margin-left: 15px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.customers{
+    border: 2px solid black;
+        border-radius: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+}
+.space{
+    margin-bottom: 50px;
+}
+
+.customers>p{
+    font-family: Arial, Helvetica, sans-serif;
+    
+    padding-left: 15px;
+}
+.p-1{
+    
+    margin-right: 230px;
+}
+.link{
+   color:  #7676ff;
+}
+.bold {
+    font-weight: bold;
+}
+.connecting-line {
+    border: none;
+    border-top: 1px solid black;
+    margin: 0;
+}
