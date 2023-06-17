@@ -52,5 +52,119 @@ body {
    
         font-size: x-large ;
         margin-left: 90px;
+        
       
 }
+
+.status{
+    display: flex;
+    
+    border: 2px solid black;
+    margin-inline: 50px;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+.show{
+    margin-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.drop{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 100px;
+    margin: 10px;
+    
+}
+.fa{
+    font-size: x-large;
+}
+
+.arrow{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.head{
+    margin-left: 15px;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ .head p:first-child{
+    margin-right: 80px;
+}
+ .head p:nth-child(2) {
+     margin-right: 600px;
+ }
+ .head p:nth-child(3) {
+     margin-right: 270px;
+ }
+ .head p:nth-child(4) {
+     margin-right: 40px;
+     
+ }
+
+ .head-m {
+    border-radius: 10px;
+     display: flex;
+     border: 2px solid black;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: medium;
+    
+     margin-inline: 10px;
+ }
+
+ .head-m p:first-child {
+    margin-left: 25px;
+     margin-right: 100px;
+ }
+
+ .head-m p:nth-child(2) {
+     margin-right: 580px;
+ }
+
+ .head-m p:nth-child(3) {
+     margin-right: 270px;
+ }
+
+ .head-m p:nth-child(4) {
+     margin-right: 40px;
+
+ }
+ .box-m{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    background-color: greenyellow;
+    border: 2px solid green;
+    /* padding-inline: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px; */
+    width: 75px;
+    height: 25px;
+    font-size: small;
+ }
+ .footer{
+    margin-top: 20px;
+    margin-inline: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;    
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 2px; 
+}
+ .footer>p{
+    color: #a2aed1;
+    font-size: medium;
+    margin-right: 5px;
+    text-decoration: none;
+ }
