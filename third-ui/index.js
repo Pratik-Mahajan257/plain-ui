@@ -15,18 +15,7 @@ function CustomersComponent(customers) {
 const container = document.getElementById('container');
 
 const customerData = [
-  {
-    customerName: 'Alexander John',
-    startDate: '01 January 2020',
-    endDate: '31 December 2022',
-    status: 'Active',
-    editLink: 'https://example.com/edit',
-    customerNameMarginRight: 210,
-    startDateMarginRight: 180,
-    endDateMarginRight: 195,
-    statusMarginRight: 235,
-    bold: true,
-  },
+ 
   {
     customerName: 'G K Founders',
     startDate: '01 January 2020',

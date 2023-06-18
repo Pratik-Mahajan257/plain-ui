@@ -82,6 +82,22 @@ body {
     
     margin-right: 230px;
 }
+
+.p-11{
+    margin-right: 210px;
+}
+
+.p-2{
+    margin-right: 180px;
+}
+.p-3{
+    margin-right: 198px;
+}
+
+.p-4{
+    margin-right: 230px;
+}
+
 .link{
    color:  #7676ff;
 }
@@ -92,4 +108,71 @@ body {
     border: none;
     border-top: 1px solid black;
     margin: 0;
+}
+
+
+.line{
+    border: 1px solid gray;
+    height: 80px;
+    width: 0px;
+    margin-left: 50px;
+   
+}
+
+.start{
+    
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    
+    
+}
+.s-1{
+    margin-left: 330px;
+    margin-right: 250px;
+white-space: nowrap;
+margin-bottom: 2px;
+
+    
+}
+.s-2{
+    margin-right: 250px;
+        white-space: nowrap;
+        margin-bottom: 2px;
+}
+.s-3{
+margin-right: 180px;
+margin-bottom: 2px;
+}
+.date-picker {
+    margin-top: 4px;
+}
+.d1{
+    margin-left: 310px;
+    padding: 5px 10px;
+    
+}
+.d2{
+    padding: 5px 10px;
+    margin-left: -20px
+
+}
+.d3{
+    padding: 5px 10px;
+}
+.status-dropdown {
+ margin-left: -17px;
+}
+
+.btn {
+    margin-left: 10px;
+    background-color: blue;
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 25px;
 }
