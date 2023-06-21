@@ -1,23 +1,52 @@
-// Create a component function
 function CustomersComponent(customers) {
-  return customers.map((customer) => `
+  return customers.map((customer, index) => `
     <div class="customers">
       <p class="p-1 ${customer.bold ? 'bold' : ''}" style="margin-right: ${customer.customerNameMarginRight}px;">${customer.customerName}</p>
       <p class="p-1" style="margin-right: ${customer.startDateMarginRight}px;">${customer.startDate}</p>
       <p class="p-1" style="margin-right: ${customer.endDateMarginRight}px;">${customer.endDate}</p>
       <p class="p-1" style="margin-right: ${customer.statusMarginRight}px;">${customer.status}</p>
-      <a href="${customer.editLink}" class="link">Edit</a>
+      <button href="#" class="link edit-link" data-index="${index}">Edit</button>
+    </div>
+
+    <div class="modal" id="modal-${index}">
+      <div class="modal-content">
+        <h2 class="editc">Edit Customer</h2>
+        <label for="customerName-${index}">Customer Name:</label>
+        <input type="text" id="customerName-${index}" value="${customer.customerName}">
+        <label for="startDate-${index}">Start Date:</label>
+        <input type="text" id="startDate-${index}" class="date-picker" value="${customer.startDate}">
+        <label for="endDate-${index}">End Date:</label>
+        <input type="text" id="endDate-${index}" class="date-picker" value="${customer.endDate}">
+        <label for="status-${index}">Status:</label>
+        <select id="status-${index}">
+          <option value="Active" ${customer.status === 'Active' ? 'selected' : ''}>Active</option>
+          <option value="Inactive" ${customer.status === 'Inactive' ? 'selected' : ''}>Inactive</option>
+        </select>
+        <button class="update-btn" data-index="${index}">Update</button>
+      </div>
     </div>
   `).join('');
 }
 
-// Render the component
-const container = document.getElementById('container');
-
-const customerData = [
+    // Render the component
+    const container = document.getElementById('container');
+    const customerData = [
+      // customer objects
+       {
+    customerName: 'Customer 1',
+    startDate: '01 January 2020',
+    endDate: '31 December 2022',
+    status: 'Active',
+    editLink: 'https://example.com/edit',
+    customerNameMarginRight: 225,
+    startDateMarginRight: 180,
+    endDateMarginRight: 195,
+    statusMarginRight: 233,
+    bold: true,
+  },
  
   {
-    customerName: 'G K Founders',
+    customerName: 'Customer 2',
     startDate: '01 January 2020',
     endDate: '31 December 2022',
     status: 'Active',
@@ -29,43 +58,43 @@ const customerData = [
     bold: true,
   },
   {
-    customerName: 'Hindustan Pecils',
+    customerName: 'Customer 3',
     startDate: '01 January 2020',
     endDate: '31 December 2022',
     status: 'Active',
     editLink: 'https://example.com/edit',
-    customerNameMarginRight: 200,
+    customerNameMarginRight: 225,
     startDateMarginRight: 183,
     endDateMarginRight: 195,
-    statusMarginRight: 233,
+    statusMarginRight: 231,
     bold: true,
   },
     {
-    customerName: 'PT Mitra Akses Globalindo',
+    customerName: 'Customer 4',
     startDate: '01 September 2022',
     endDate: '30 October 2022',
     status: 'Inactive',
     editLink: 'https://example.com/edit',
-    customerNameMarginRight: 127,
-    startDateMarginRight: 170,
+    customerNameMarginRight: 225,
+    startDateMarginRight: 168,
     endDateMarginRight: 200,
-    statusMarginRight: 226,
+    statusMarginRight: 224,
     bold: true,
   },
     {
-    customerName: 'SMERK',
+    customerName: 'Customer 5',
     startDate: '15 September 2022',
     endDate: '15 November 2022',
     status: 'Inactive',
     editLink: 'https://example.com/edit',
-    customerNameMarginRight: 270,
+    customerNameMarginRight: 220,
     startDateMarginRight: 165,
     endDateMarginRight: 190,
     statusMarginRight: 225,
     bold: true,
   },
     {
-    customerName: 'Tata Projects',
+    customerName: 'Customer 6',
     startDate: '01 October 2022',
     endDate: '30 November 2022',
     status: 'Active',
@@ -73,9 +102,65 @@ const customerData = [
     customerNameMarginRight: 233,
     startDateMarginRight: 185,
     endDateMarginRight: 190,
-    statusMarginRight: 236,
+    statusMarginRight: 225,
     bold: true,
   },
-];
+    ];
+    container.innerHTML = CustomersComponent(customerData);
 
-container.innerHTML = CustomersComponent(customerData);
+    // Initialize date picker for date fields
+const datePickers = document.querySelectorAll('.date-picker');
+datePickers.forEach((datePicker) => {
+  flatpickr(datePicker, {
+    dateFormat: 'd F Y',
+  });
+});
+
+// Event listeners for edit links and update button
+container.addEventListener('click', handleEditClick);
+container.addEventListener('click', handleUpdateClick);
+
+// Function to handle edit link click
+function handleEditClick(event) {
+  event.preventDefault();
+  if (event.target.classList.contains('edit-link')) {
+    const index = event.target.getAttribute('data-index');
+    openModal(index);
+  }
+}
+
+// Function to handle update button click
+function handleUpdateClick(event) {
+  if (event.target.classList.contains('update-btn')) {
+    const index = event.target.getAttribute('data-index');
+    updateCustomerData(index);
+    closeModal(index);
+  }
+}
+
+// Function to open the modal
+function openModal(index) {
+  const modal = document.getElementById(`modal-${index}`);
+  modal.style.display = 'block';
+}
+
+// Function to close the modal
+function closeModal(index) {
+  const modal = document.getElementById(`modal-${index}`);
+  modal.style.display = 'none';
+}
+
+// Function to update customer data
+function updateCustomerData(index) {
+  const customerNameInput = document.getElementById(`customerName-${index}`);
+  const startDateInput = document.getElementById(`startDate-${index}`);
+  const endDateInput = document.getElementById(`endDate-${index}`);
+  const statusSelect = document.getElementById(`status-${index}`);
+
+  customerData[index].customerName = customerNameInput.value;
+  customerData[index].startDate = startDateInput.value;
+  customerData[index].endDate = endDateInput.value;
+  customerData[index].status = statusSelect.value;
+
+  container.innerHTML = CustomersComponent(customerData);
+}
