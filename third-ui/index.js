@@ -10,19 +10,28 @@ function CustomersComponent(customers) {
 
     <div class="modal" id="modal-${index}">
       <div class="modal-content">
-        <h2 class="editc">Edit Customer</h2>
-        <label for="customerName-${index}">Customer Name:</label>
-        <input type="text" id="customerName-${index}" value="${customer.customerName}">
-        <label for="startDate-${index}">Start Date:</label>
+         <div class="navbar1">
+        <div class="brand1">
+            <p class="pre">
+                Edit
+            </p>
+
+        </div>
+        </div>
+        <div class="content">
+        <label for="customerName-${index}" class="cust">Customer Name:</label>
+        <input class="c-name" type="text" id="customerName-${index}" value="${customer.customerName}">
+        <label for="startDate-${index}" >Start Date:</label>
         <input type="text" id="startDate-${index}" class="date-picker" value="${customer.startDate}">
         <label for="endDate-${index}">End Date:</label>
         <input type="text" id="endDate-${index}" class="date-picker" value="${customer.endDate}">
         <label for="status-${index}">Status:</label>
         <select id="status-${index}">
-          <option value="Active" ${customer.status === 'Active' ? 'selected' : ''}>Active</option>
-          <option value="Inactive" ${customer.status === 'Inactive' ? 'selected' : ''}>Inactive</option>
+        <option value="Active" ${customer.status === 'Active' ? 'selected' : ''}>Active</option>
+        <option value="Inactive" ${customer.status === 'Inactive' ? 'selected' : ''}>Inactive</option>
         </select>
         <button class="update-btn" data-index="${index}">Update</button>
+        </div>
       </div>
     </div>
   `).join('');

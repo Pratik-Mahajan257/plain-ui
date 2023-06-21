@@ -12,7 +12,15 @@ body {
     margin-bottom: 40px;
 
 }
-
+.navbar1 {
+    background-color: #212121;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+ 
+}
 
 .brand {
     color: #fff;
@@ -22,10 +30,18 @@ body {
     margin-left: 80px;
 
 }
+.brand1 {
+    color: #fff;
+    font-weight: bold;
+    background-color: #000;
+    padding-inline: 18px;
+    margin-left: 50px;
 
+}
 .pre {
     font-family: 'Poppins', sans-serif;
 }
+
 
 .right {
     display: flex;
@@ -185,16 +201,19 @@ margin-bottom: 2px;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    
     background-color: rgba(0, 0, 0, 0.4);
+   
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 20% auto;
-    padding: 20px;
+    margin: 150px auto;
+    
     border: 1px solid #888;
     width: 300px;
+
+
 }
 
 .date-picker {
@@ -204,16 +223,16 @@ margin-bottom: 2px;
 }
 
 .update-btn {
-    padding: 5px 10px;
-    background-color: #4caf50;
+    padding: 15px 10px;
+    background-color: #2d20d9;
     color: #fff;
     border: none;
     cursor: pointer;
-    position: fixed;
+    margin-top: 18px;
 }
 
 .update-btn:hover {
-    background-color: #45a049;
+    background-color: #6148e1;
 }
 
 .link {
@@ -232,6 +251,22 @@ margin-bottom: 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+   
 
+}
+
+.content {
+    padding: 0px 50px ;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cust{
+    margin-bottom: 10px;
+}
+
+.c-name{
+    padding: 5px 5px;
+    margin-bottom: 10px;
 }
