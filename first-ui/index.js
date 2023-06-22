@@ -81,7 +81,7 @@ const customersData = [
 function generateCustomersComponent(data) {
   const customersContainer = document.getElementById("customers");
 
-  data.forEach((customer) => {
+  data.forEach((customer, customerIndex) => {
     const customerElement = document.createElement("div");
     customerElement.classList.add("customers");
 
@@ -90,15 +90,14 @@ function generateCustomersComponent(data) {
     nameElement.innerText = customer.name;
     customerElement.appendChild(nameElement);
 
-    customer.spans.forEach((spanColor, index) => {
+    customer.spans.forEach((spanColor, dotIndex) => {
       const spanElement = document.createElement("span");
       spanElement.classList.add("c1-span");
       spanElement.style.backgroundColor = spanColor;
       spanElement.addEventListener("click", () => {
-        const newColor = prompt("Enter a new color:") || spanColor;
-        customer.spans[index] = newColor;
-        spanElement.style.backgroundColor = newColor;
+        toggleDotColor(customerIndex, dotIndex);
       });
+
       customerElement.appendChild(spanElement);
     });
 
@@ -107,5 +106,7 @@ function generateCustomersComponent(data) {
 }
 
 
+
 generateCustomersComponent(customersData);
+
 
