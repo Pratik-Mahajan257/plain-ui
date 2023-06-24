@@ -1,7 +1,14 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-  // Sample data
-  const data = [
-    {
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+
+
+let data = [
+ {
       srNo: "1",
       clientName: "Customer 1",
       deviceStatus: "14/14",
@@ -57,39 +64,39 @@
       borderColor: "#d8a3a1", 
       marginRight: "610px"
     },
-  ];
+];
 
-  function generateComponent(data) {
-    return `
-      <div class="head-m">
-        <p >${data.srNo}</p>
-        <p style="margin-right: ${data.marginRight}">${data.clientName}</p>
-        <p class="box-m" style="background-color: ${data.boxColor}; border-color: ${data.borderColor}">
-          <span>${data.deviceStatus}</span>
-        </p>
-        <p  >${data.licenseExpiry}</p>
-      </div>
-    `;
+// Get all components
+app.get('/components', (req, res) => {
+  res.json(data);
+});
+
+// Update a component by ID
+app.put('/components/:id', (req, res) => {
+  const componentId = req.params.id;
+  const { clientName, deviceStatus, licenseExpiry } = req.body;
+
+  // Find the component in the data array
+  const component = data.find((item) => item.srNo === componentId);
+  if (!component) {
+    return res.status(404).json({ message: 'Component not found' });
   }
 
-function renderComponents() {
-  const container = document.getElementById("container");
+  // Update the properties
+  if (clientName) {
+    component.clientName = clientName;
+  }
+  if (deviceStatus) {
+    component.deviceStatus = deviceStatus;
+  }
+  if (licenseExpiry) {
+    component.licenseExpiry = licenseExpiry;
+  }
 
-  // Clear the container before rendering components
-  container.innerHTML = "";
+  res.json(component);
+});
 
-  fetch('http://localhost:3000/components')
-    .then(response => response.json())
-    .then(data => {
-      data.forEach((item) => {
-        const componentHTML = generateComponent(item);
-        container.innerHTML += componentHTML;
-      });
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-}
-
-renderComponents();
-
+// Start the server
+app.listen(3000, () => {
+  console.log('Server listening on port 3000');
+});

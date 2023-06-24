@@ -87,6 +87,7 @@ function generateCustomersComponent(data) {
 
     const nameElement = document.createElement("p");
     nameElement.classList.add("c1");
+    nameElement.id = `customer-name-${customerIndex}`; // Add an ID to identify the customer name element
     nameElement.innerText = customer.name;
     customerElement.appendChild(nameElement);
 
@@ -94,6 +95,7 @@ function generateCustomersComponent(data) {
       const spanElement = document.createElement("span");
       spanElement.classList.add("c1-span");
       spanElement.style.backgroundColor = spanColor;
+      spanElement.id = `customer-dot-${customerIndex}-${dotIndex}`; // Add an ID to identify the dot color element
       spanElement.addEventListener("click", () => {
         toggleDotColor(customerIndex, dotIndex);
       });
@@ -107,6 +109,55 @@ function generateCustomersComponent(data) {
 
 
 
+
+
 generateCustomersComponent(customersData);
 
+// ...
+// Function to fetch updated customer data from the backend
+async function fetchCustomersData() {
+  const response = await fetch('/api/customers');
+  const data = await response.json();
+  return data;
+}
 
+// ...
+
+// Function to update the customer name in the UI
+function updateCustomerName(id, name) {
+  const nameElement = document.getElementById(`customer-name-${id}`);
+  if (nameElement) {
+    nameElement.innerText = name;
+  }
+}
+
+// Function to update the dot color in the UI
+function updateDotColor(customerId, dotIndex, color) {
+  const dotElement = document.getElementById(`customer-dot-${customerId}-${dotIndex}`);
+  if (dotElement) {
+    dotElement.style.backgroundColor = color;
+  }
+}
+
+// ...
+
+// Periodically fetch updated data and update the UI
+async function updateDataAndUI() {
+  const data = await fetchCustomersData();
+
+  data.forEach((customer, customerIndex) => {
+    // Update customer name
+    updateCustomerName(customerIndex, customer.name);
+
+    // Update dot colors
+    customer.spans.forEach((spanColor, dotIndex) => {
+      updateDotColor(customerIndex, dotIndex, spanColor);
+    });
+  });
+}
+
+// Fetch initial data and update the UI on page load
+updateDataAndUI();
+
+// Periodically update the data and UI every 5 seconds
+setInterval(updateDataAndUI, 5000);

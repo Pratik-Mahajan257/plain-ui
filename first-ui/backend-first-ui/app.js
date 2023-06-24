@@ -41,6 +41,9 @@ let customersData = [
 
 // Get the customers data
 app.get('/api/customers', (req, res) => {
+
+    
+
   res.json(customersData);
 });
 
