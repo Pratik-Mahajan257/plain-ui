@@ -72,13 +72,14 @@
     `;
   }
 
+
 function renderComponents() {
   const container = document.getElementById("container");
 
   // Clear the container before rendering components
   container.innerHTML = "";
 
-  fetch('http://localhost:3000/components')
+  fetch('https://backend-second.vercel.app/components')
     .then(response => response.json())
     .then(data => {
       data.forEach((item) => {
@@ -92,4 +93,3 @@ function renderComponents() {
 }
 
 renderComponents();
-
