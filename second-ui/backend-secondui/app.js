@@ -68,7 +68,7 @@ let data = [
 
 // Get all components
 app.get('/components', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
+  res.header('Content-Type', 'application/json');
   res.json(data);
 });
 
