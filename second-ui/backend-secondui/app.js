@@ -96,6 +96,7 @@ app.put('/components/:id', (req, res) => {
   res.json(component);
 });
 
+module.exports = app;
 // Start the server
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
