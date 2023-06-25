@@ -108,7 +108,7 @@ function generateCustomersComponent(data) {
 }
 
 function fetchAndUpdateData() {
-  fetch('http://localhost:3000/customers')
+  fetch('https://backend-first.vercel.app/customers')
     .then(response => response.json())
     .then(data => {
       // Call the function to update the frontend with the new data
