@@ -107,57 +107,21 @@ function generateCustomersComponent(data) {
   });
 }
 
-
-
-
-
-generateCustomersComponent(customersData);
-
-// ...
-// Function to fetch updated customer data from the backend
-async function fetchCustomersData() {
-  const response = await fetch('/api/customers');
-  const data = await response.json();
-  return data;
-}
-
-// ...
-
-// Function to update the customer name in the UI
-function updateCustomerName(id, name) {
-  const nameElement = document.getElementById(`customer-name-${id}`);
-  if (nameElement) {
-    nameElement.innerText = name;
-  }
-}
-
-// Function to update the dot color in the UI
-function updateDotColor(customerId, dotIndex, color) {
-  const dotElement = document.getElementById(`customer-dot-${customerId}-${dotIndex}`);
-  if (dotElement) {
-    dotElement.style.backgroundColor = color;
-  }
-}
-
-// ...
-
-// Periodically fetch updated data and update the UI
-async function updateDataAndUI() {
-  const data = await fetchCustomersData();
-
-  data.forEach((customer, customerIndex) => {
-    // Update customer name
-    updateCustomerName(customerIndex, customer.name);
-
-    // Update dot colors
-    customer.spans.forEach((spanColor, dotIndex) => {
-      updateDotColor(customerIndex, dotIndex, spanColor);
+function fetchAndUpdateData() {
+  fetch('http://localhost:3000/customers')
+    .then(response => response.json())
+    .then(data => {
+      // Call the function to update the frontend with the new data
+      generateCustomersComponent(data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
     });
-  });
 }
 
-// Fetch initial data and update the UI on page load
-updateDataAndUI();
+// Fetch and update data initially
+fetchAndUpdateData();
 
-// Periodically update the data and UI every 5 seconds
-setInterval(updateDataAndUI, 5000);
+// Fetch and update data every 5 seconds
+
+

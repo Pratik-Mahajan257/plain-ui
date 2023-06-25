@@ -1,12 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 
-// Store the customersData in memory
-let customersData = [
-  // ... your original customersData array here
+const customersData = [
    {
     name: "Customer 1",
     spans: ["#97d077", "#97d077", "#97d077", "#97d077", "#97d077", "#97d077", "#97d077", "#97d077", "#97d077", "#97d077",
@@ -39,48 +39,49 @@ let customersData = [
   },
 ];
 
-// Get the customers data
-app.get('/api/customers', (req, res) => {
-
-    
-
+// Get all customers
+app.get('/customers', (req, res) => {
   res.json(customersData);
 });
 
-// Update a customer's name
-app.put('/api/customers/:id/name', (req, res) => {
-  const { id } = req.params;
-  const { name } = req.body;
+// Update customer name
+app.put('/customers/:index/name', (req, res) => {
+  const index = req.params.index;
+  const newName = req.body.name;
 
-  if (!name) {
-    return res.status(400).json({ error: 'Name is required' });
+  if (!customersData[index]) {
+    return res.status(404).json({ message: 'Customer not found' });
   }
 
-  if (customersData[id]) {
-    customersData[id].name = name;
+  customersData[index].name = newName;
 
-    res.json({ message: 'Customer name updated successfully' });
-  } else {
-    res.status(404).json({ error: 'Customer not found' });
-  }
+  // Dispatch custom event to notify frontend about the name change
+  const eventData = {
+    index: index,
+    name: newName
+  };
+  res.json(eventData);
 });
 
-// Update a dot color
-app.put('/api/customers/:customerId/dots/:dotIndex/color', (req, res) => {
-  const { customerId, dotIndex } = req.params;
-  const { color } = req.body;
+// Update dot color
+app.put('/customers/:index/dots/:dotIndex', (req, res) => {
+  const index = req.params.index;
+  const dotIndex = req.params.dotIndex;
+  const newColor = req.body.color;
 
-  if (!color) {
-    return res.status(400).json({ error: 'Color is required' });
+  if (!customersData[index] || !customersData[index].spans[dotIndex]) {
+    return res.status(404).json({ message: 'Customer or dot not found' });
   }
 
-  if (customersData[customerId] && customersData[customerId].spans[dotIndex]) {
-    customersData[customerId].spans[dotIndex] = color;
+  customersData[index].spans[dotIndex] = newColor;
 
-    res.json({ message: 'Dot color updated successfully' });
-  } else {
-    res.status(404).json({ error: 'Customer or dot not found' });
-  }
+  // Dispatch custom event to notify frontend about the dot color change
+  const eventData = {
+    index: index,
+    dotIndex: dotIndex,
+    color: newColor
+  };
+  res.json(eventData);
 });
 
 // Start the server
