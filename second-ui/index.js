@@ -79,7 +79,7 @@ function renderComponents() {
   // Clear the container before rendering components
   container.innerHTML = "";
 
-  fetch('https://backend-second.vercel.app/components')
+  fetch('https://second-backend.vercel.app/components')
     .then(response => response.json())
     .then(data => {
       data.forEach((item) => {
