@@ -66,24 +66,23 @@ let data = [
     },
 ];
 
-// Get all components
+
 app.get('/components', (req, res) => {
   res.header('Content-Type', 'application/json');
   res.json(data);
 });
 
-// Update a component by ID
 app.put('/components/:id', (req, res) => {
   const componentId = req.params.id;
   const { clientName, deviceStatus, licenseExpiry } = req.body;
 
-  // Find the component in the data array
+
   const component = data.find((item) => item.srNo === componentId);
   if (!component) {
     return res.status(404).json({ message: 'Component not found' });
   }
 
-  // Update the properties
+ 
   if (clientName) {
     component.clientName = clientName;
   }
@@ -98,7 +97,7 @@ app.put('/components/:id', (req, res) => {
 });
 
 module.exports = app;
-// Start the server
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });

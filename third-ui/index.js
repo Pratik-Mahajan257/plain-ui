@@ -37,10 +37,10 @@ function CustomersComponent(customers) {
   `).join('');
 }
 
-    // Render the component
+ 
     const container = document.getElementById('container');
     const customerData = [
-      // customer objects
+    
        {
     customerName: 'Customer 1',
     startDate: '01 January 2020',
@@ -117,7 +117,7 @@ function CustomersComponent(customers) {
     ];
     container.innerHTML = CustomersComponent(customerData);
 
-    // Initialize date picker for date fields
+    
 const datePickers = document.querySelectorAll('.date-picker');
 datePickers.forEach((datePicker) => {
   flatpickr(datePicker, {
@@ -125,11 +125,10 @@ datePickers.forEach((datePicker) => {
   });
 });
 
-// Event listeners for edit links and update button
+
 container.addEventListener('click', handleEditClick);
 container.addEventListener('click', handleUpdateClick);
 
-// Function to handle edit link click
 function handleEditClick(event) {
   event.preventDefault();
   if (event.target.classList.contains('edit-link')) {
@@ -138,7 +137,7 @@ function handleEditClick(event) {
   }
 }
 
-// Function to handle update button click
+
 function handleUpdateClick(event) {
   if (event.target.classList.contains('update-btn')) {
     const index = event.target.getAttribute('data-index');
@@ -147,19 +146,19 @@ function handleUpdateClick(event) {
   }
 }
 
-// Function to open the modal
+
 function openModal(index) {
   const modal = document.getElementById(`modal-${index}`);
   modal.style.display = 'block';
 }
 
-// Function to close the modal
+
 function closeModal(index) {
   const modal = document.getElementById(`modal-${index}`);
   modal.style.display = 'none';
 }
 
-// Function to update customer data
+
 function updateCustomerData(index) {
   const customerNameInput = document.getElementById(`customerName-${index}`);
   const startDateInput = document.getElementById(`startDate-${index}`);

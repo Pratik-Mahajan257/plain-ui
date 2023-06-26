@@ -87,7 +87,7 @@ function generateCustomersComponent(data) {
 
     const nameElement = document.createElement("p");
     nameElement.classList.add("c1");
-    nameElement.id = `customer-name-${customerIndex}`; // Add an ID to identify the customer name element
+    nameElement.id = `customer-name-${customerIndex}`; 
     nameElement.innerText = customer.name;
     customerElement.appendChild(nameElement);
 
@@ -95,7 +95,7 @@ function generateCustomersComponent(data) {
       const spanElement = document.createElement("span");
       spanElement.classList.add("c1-span");
       spanElement.style.backgroundColor = spanColor;
-      spanElement.id = `customer-dot-${customerIndex}-${dotIndex}`; // Add an ID to identify the dot color element
+      spanElement.id = `customer-dot-${customerIndex}-${dotIndex}`; 
       spanElement.addEventListener("click", () => {
         toggleDotColor(customerIndex, dotIndex);
       });
@@ -111,7 +111,7 @@ function fetchAndUpdateData() {
   fetch('https://backend-first.vercel.app/customers')
     .then(response => response.json())
     .then(data => {
-      // Call the function to update the frontend with the new data
+      
       generateCustomersComponent(data);
     })
     .catch(error => {
@@ -119,9 +119,9 @@ function fetchAndUpdateData() {
     });
 }
 
-// Fetch and update data initially
+
 fetchAndUpdateData();
 
-// Fetch and update data every 5 seconds
+
 
 

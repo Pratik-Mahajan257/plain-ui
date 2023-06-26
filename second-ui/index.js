@@ -1,5 +1,5 @@
 
-  // Sample data
+
   const data = [
     {
       srNo: "1",
@@ -76,7 +76,7 @@
 function renderComponents() {
   const container = document.getElementById("container");
 
-  // Clear the container before rendering components
+
   container.innerHTML = "";
 
   fetch('https://second-backend.vercel.app/components')

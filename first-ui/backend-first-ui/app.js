@@ -39,12 +39,11 @@ const customersData = [
   },
 ];
 
-// Get all customers
 app.get('/customers', (req, res) => {
   res.json(customersData);
 });
 
-// Update customer name
+
 app.put('/customers/:index/name', (req, res) => {
   const index = req.params.index;
   const newName = req.body.name;
@@ -55,7 +54,7 @@ app.put('/customers/:index/name', (req, res) => {
 
   customersData[index].name = newName;
 
-  // Dispatch custom event to notify frontend about the name change
+  
   const eventData = {
     index: index,
     name: newName
@@ -63,7 +62,6 @@ app.put('/customers/:index/name', (req, res) => {
   res.json(eventData);
 });
 
-// Update dot color
 app.put('/customers/:index/dots/:dotIndex', (req, res) => {
   const index = req.params.index;
   const dotIndex = req.params.dotIndex;
@@ -75,7 +73,6 @@ app.put('/customers/:index/dots/:dotIndex', (req, res) => {
 
   customersData[index].spans[dotIndex] = newColor;
 
-  // Dispatch custom event to notify frontend about the dot color change
   const eventData = {
     index: index,
     dotIndex: dotIndex,
@@ -84,7 +81,7 @@ app.put('/customers/:index/dots/:dotIndex', (req, res) => {
   res.json(eventData);
 });
 
-// Start the server
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
