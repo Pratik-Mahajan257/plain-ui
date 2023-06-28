@@ -84,11 +84,8 @@ function fetchStartingHour() {
   fetch('https://backend-first.vercel.app/getStartingHour')
     .then(response => response.json())
     .then(data => {
-      // Update the startHour variable with the fetched value
-      startHour = data.startHour;
-
-      // Regenerate the hours display with the new starting hour
-      generateHours();
+        startHour = data.startHour;
+          generateHours();
     })
     .catch(error => {
       console.error('Error fetching starting hour:', error);
@@ -97,12 +94,11 @@ function fetchStartingHour() {
 
 function generateHours() {
   const numElement = document.getElementById("numbers");
-  numElement.innerHTML = ''; // Clear previous hours
-
+  numElement.innerHTML = ''; 
   for (let i = 0; i < 24; i++) {
     const spanElement = document.createElement("span");
     spanElement.classList.add("n");
-    spanElement.innerText = ("0" + ((startHour + i) % 24)).slice(-2); // Adjust the hour display
+    spanElement.innerText = ("0" + ((startHour + i) % 24)).slice(-2); 
     numElement.appendChild(spanElement);
   }
 }

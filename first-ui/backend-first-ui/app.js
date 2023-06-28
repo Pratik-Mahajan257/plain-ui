@@ -50,9 +50,8 @@ app.get('/getStartingHour', (req, res) => {
   res.json({ startHour: startingHour });
 });
 
-// API endpoint to update the starting hour
+
 app.post('/setStartingHour', (req, res) => {
-  // Assuming the new starting hour is sent in the request body as { startHour: 11 }
   startingHour = req.body.startHour;
   res.json({ success: true });
 });
