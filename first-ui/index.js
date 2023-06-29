@@ -107,49 +107,41 @@ fetchStartingHour();
 
 
 function generateCustomersComponent(data) {
-  const customersContainer = document.getElementById("customers");
+  const customersContainer = $("#customers"); 
 
   data.forEach((customer, customerIndex) => {
-    const customerElement = document.createElement("div");
-    customerElement.classList.add("customers");
+    const customerElement = $("<div>").addClass("customers"); 
 
-    const nameElement = document.createElement("p");
-    nameElement.classList.add("c1");
-    nameElement.id = `customer-name-${customerIndex}`; 
-    nameElement.innerText = customer.name;
-    customerElement.appendChild(nameElement);
+    const nameElement = $("<p>").addClass("c1").attr("id", `customer-name-${customerIndex}`).text(customer.name);
+    customerElement.append(nameElement);
 
     customer.spans.forEach((spanColor, dotIndex) => {
-      const spanElement = document.createElement("span");
-      spanElement.classList.add("c1-span");
-      spanElement.style.backgroundColor = spanColor;
-      spanElement.id = `customer-dot-${customerIndex}-${dotIndex}`; 
-      spanElement.addEventListener("click", () => {
+      const spanElement = $("<span>").addClass("c1-span").css("background-color", spanColor).attr("id", `customer-dot-${customerIndex}-${dotIndex}`); // Use jQuery to create span element
+      spanElement.on("click", () => {
         toggleDotColor(customerIndex, dotIndex);
       });
 
-      customerElement.appendChild(spanElement);
+      customerElement.append(spanElement);
     });
 
-    customersContainer.appendChild(customerElement);
+    customersContainer.append(customerElement);
+  });
+
+
+ $(document).ready(function() {
+    $('#customersTable').DataTable();
   });
 }
 
 function fetchAndUpdateData() {
-  fetch('https://backend-first.vercel.app/customers')
-    .then(response => response.json())
-    .then(data => {
-      
+  fetch("https://backend-first.vercel.app/customers")
+    .then((response) => response.json())
+    .then((data) => {
       generateCustomersComponent(data);
     })
-    .catch(error => {
-      console.error('Error fetching data:', error);
+    .catch((error) => {
+      console.error("Error fetching data:", error);
     });
 }
 
-
 fetchAndUpdateData();
-
-
-
-

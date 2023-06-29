@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -56,15 +57,27 @@
 
 
 </div>
-<div id="customers"></div>
-          
+<table id="customersTable" class="display">
+    <thead>
+        <tr>
+         
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td id="customers"></td>
+    </tr>
+    </tbody>
+</table>
+
+
             
         </div>
     </div>
 
 
-
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="index.js"></script>
 
 
